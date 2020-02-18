@@ -1,3 +1,4 @@
+# cach 1
 def sum(listed, k):
     check = False
     if len(listed) == k:
@@ -7,6 +8,7 @@ def sum(listed, k):
                 break
     return check
 
-listed = [4, 7, 1, -3, 2]
-k = 5
-print(sum(listed, k))
+if __name__ == "__main__":
+    listed = [4, 7, 1, -3, 2]
+    k = 5
+    print(sum(listed, k))
