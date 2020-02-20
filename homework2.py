@@ -62,30 +62,30 @@ class BST:
             print('Cannot find')
             return False
 
-    # def left_most(self, current):
-    #     while current.left is not None:
-    #         current = current.left
-    #     return current
-    #
-    # def delete_node(self, root, value):
-    #     if root is None:
-    #         return root
-    #     if value < root.value:
-    #         root.left = self.delete_node(root.left, value)
-    #     elif value > root.value:
-    #         root.right = self.delete_node(root.right, value)
-    #     else:
-    #         if root.left is None:
-    #             new = Node(root.right.value)
-    #             del root
-    #             return new
-    #         if root.right is None:
-    #             new = Node(root.left.value)
-    #             del root
-    #             return new
-    #         root.value = self.left_most(root.right)
-    #         root.right = self.delete_node(root.right, root.value)
-    #     return root
+    def left_most(self, current):
+        while current.left is not None:
+            current = current.left
+        return current
+
+    def delete_node(self, root, value):
+        if root is None:
+            return root
+        if value < root.value:
+            root.left = self.delete_node(root.left, value)
+        elif value > root.value:
+            root.right = self.delete_node(root.right, value)
+        else:
+            if root.left is None:
+                new = root.right
+                del root
+                return new
+            if root.right is None:
+                new = root.left
+                del root
+                return new
+            temp = self.left_most(root.right)
+            root.right = self.delete_node(root.right, temp.value)
+        return root
 
 
 def way_root_to_value(root, value, listed):
@@ -114,7 +114,7 @@ def amazon_question(tree_default, value1, value2):
         index_listed1 = 0
         index_listed2 = 0
         listed1.remove(value1)
-        while index_listed1 < len(listed1)-1 or index_listed2 < len(listed2)-1:
+        while index_listed1 < len(listed1) or index_listed2 < len(listed2):
             if index_listed2 == index_listed1 and listed1[index_listed1] == listed2[index_listed2]:
                 index_listed1 += 1
                 index_listed2 += 1
@@ -169,9 +169,12 @@ if __name__ == '__main__':
     tree2.insert_bst(9)
     tree2.insert_bst(7)
 
+    # tree2.delete_node(tree2.root, 7)
     # tree2.print_tree()
+
     # print(facebook_question(tree1.root, tree1.root))
     # print(facebook_question(tree1.root, tree2.root))
-    print(amazon_question(tree1, 2, 2))
-    print(amazon_question(tree1, 2, 7))
-    print(amazon_question(tree1, 2, 11))
+    #
+    # print(amazon_question(tree1, 2, 2))
+    # print(amazon_question(tree1, 2, 7))
+    # print(amazon_question(tree1, 2, 11))
