@@ -107,12 +107,14 @@ def amazon_question(tree_default, value1, value2):
     listed2 = []
     way_root_to_value(tree_default.root, value1, listed1)
     way_root_to_value(tree_default.root, value2, listed2)
-    if (value2 > tree_default.root.value and value1 > tree_default.root.value) \
+    if value1 == value2:
+        return 0
+    elif (value2 > tree_default.root.value and value1 > tree_default.root.value) \
         or (value1 < tree_default.root.value and value2 < tree_default.root.value):
         index_listed1 = 0
         index_listed2 = 0
         listed1.remove(value1)
-        while index_listed1 < len(listed1) or index_listed2 < len(listed2):
+        while index_listed1 < len(listed1)-1 or index_listed2 < len(listed2)-1:
             if index_listed2 == index_listed1 and listed1[index_listed1] == listed2[index_listed2]:
                 index_listed1 += 1
                 index_listed2 += 1
@@ -123,7 +125,8 @@ def amazon_question(tree_default, value1, value2):
         result = listed1[::-1]+listed2
         return len(result)
     else:
-        listed1.remove(tree_default.root.value)
+        listed1.remove(value1)
+        listed2.remove(tree_default.root.value)
         result = listed1[::-1] + listed2
         return len(result)
 
@@ -145,17 +148,19 @@ def facebook_question(root1, root2):
 if __name__ == '__main__':
     tree1 = BST()
     tree2 = BST()
+
+    # gia tri root tree1 = 10
     tree1.insert_bst(10)
     tree1.insert_bst(5)
     tree1.insert_bst(15)
     tree1.insert_bst(3)
     tree1.insert_bst(7)
-    tree1.insert_bst(15)
     tree1.insert_bst(11)
     tree1.insert_bst(16)
     tree1.insert_bst(2)
     tree1.insert_bst(1)
 
+    # gia tri root tree2 = 8
     tree2.insert_bst(8)
     tree2.insert_bst(6)
     tree2.insert_bst(10)
@@ -167,5 +172,6 @@ if __name__ == '__main__':
     # tree2.print_tree()
     # print(facebook_question(tree1.root, tree1.root))
     # print(facebook_question(tree1.root, tree2.root))
-    #
-    # print(amazon_question(tree1, 2, 7))
+    print(amazon_question(tree1, 2, 2))
+    print(amazon_question(tree1, 2, 7))
+    print(amazon_question(tree1, 2, 11))
