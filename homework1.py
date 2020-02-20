@@ -18,7 +18,6 @@ def two_sum(listed, k):
     else:
         return False
 
-
 if __name__ == "__main__":
     listed = [4, 7, 1, -3, 2]
     k = 5
