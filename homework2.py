@@ -114,7 +114,7 @@ def amazon_question(tree_default, value1, value2):
         index_listed1 = 0
         index_listed2 = 0
         listed1.remove(value1)
-        while index_listed1 < len(listed1) or index_listed2 < len(listed2):
+        while index_listed1 < len(listed1)-1 or index_listed2 < len(listed2)-1:
             if index_listed2 == index_listed1 and listed1[index_listed1] == listed2[index_listed2]:
                 index_listed1 += 1
                 index_listed2 += 1
@@ -178,3 +178,4 @@ if __name__ == '__main__':
     # print(amazon_question(tree1, 2, 2))
     # print(amazon_question(tree1, 2, 7))
     # print(amazon_question(tree1, 2, 11))
+    print(amazon_question(tree1, 11, 16))
