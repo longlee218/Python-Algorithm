@@ -119,15 +119,23 @@ def amazon_question(tree_default, value1, value2):
                 index_listed2 += 1
             else:
                 break
-        listed1 = listed1[index_listed1-1:len(listed1)+1]
-        listed2 = listed2[index_listed2+1:len(listed2)+1]
-        result = listed1[::-1]+listed2
-        return len(result)
+        if value1 < value2:
+            listed1.remove(value1)
+            listed1 = listed1[index_listed1:len(listed1)+1]
+            listed2 = listed2[index_listed2-1:len(listed2) + 1]
+            result = listed1[::-1] + listed2
+            return result
+        else:
+            listed1.remove(value1)
+            listed1 = listed1[index_listed1:len(listed1)+1]
+            listed2 = listed2[index_listed2:len(listed2)+1]
+            result = listed1[::-1]+listed2
+            return result
     else:
         listed1.remove(value1)
         listed2.remove(tree_default.root.value)
         result = listed1[::-1] + listed2
-        return len(result)
+        return result
 
 
 def facebook_question(root1, root2):
@@ -174,8 +182,7 @@ if __name__ == '__main__':
     # print(facebook_question(tree1.root, tree1.root))
     # print(facebook_question(tree1.root, tree2.root))
     #
-    print(amazon_question(tree1, 2, 2))
-    print(amazon_question(tree1, 2, 7))
-    print(amazon_question(tree1, 2, 11))
+    print(amazon_question(tree1, 2, 5))
     print(amazon_question(tree1, 5, 2))
-    print(amazon_question(tree1, 2, 1))
+    print(amazon_question(tree1, 1, 7))
+    print(amazon_question(tree1, 7, 1))
