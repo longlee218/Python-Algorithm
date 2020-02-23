@@ -102,14 +102,11 @@ def way_root_to_value(root, value, listed):
 
 
 def amazon_question(tree_default, value1, value2):
-    listed1 = []
-    listed2 = []
-    way_root_to_value(tree_default.root, value1, listed1)
-    way_root_to_value(tree_default.root, value2, listed2)
-    if value1 == value2:
-        return 0
-    elif (value2 > tree_default.root.value and value1 > tree_default.root.value) \
-        or (value1 < tree_default.root.value and value2 < tree_default.root.value):
+    if tree_default.root is not None:
+        listed1 = []
+        listed2 = []
+        way_root_to_value(tree_default.root, value1, listed1)
+        way_root_to_value(tree_default.root, value2, listed2)
         index_listed1 = 0
         index_listed2 = 0
         # listed1.remove(value1)
@@ -119,23 +116,10 @@ def amazon_question(tree_default, value1, value2):
                 index_listed2 += 1
             else:
                 break
-        if value1 < value2:
-            listed1.remove(value1)
-            listed1 = listed1[index_listed1:len(listed1)+1]
-            listed2 = listed2[index_listed2-1:len(listed2) + 1]
-            result = listed1[::-1] + listed2
-            return result
-        else:
-            listed1.remove(value1)
-            listed1 = listed1[index_listed1:len(listed1)+1]
-            listed2 = listed2[index_listed2:len(listed2)+1]
-            result = listed1[::-1]+listed2
-            return result
-    else:
-        listed1.remove(value1)
-        listed2.remove(tree_default.root.value)
-        result = listed1[::-1] + listed2
+        result = len(listed1)+len(listed2)-2*index_listed1
         return result
+    else:
+        return None
 
 
 def facebook_question(root1, root2):
