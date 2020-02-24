@@ -4,15 +4,15 @@ def singleNumber(nums):
 
 # solution 2
 
-# def singleNumber2(nums):
-#     array1 = []
-#     array2 = []
-#     for i in nums:
-#         if i in array1:
-#             array1.append(i)
-#         array2.append(i)
-#     result = set(array2).difference(set(array1))
-#     return result.pop()
+def singleNumber2(nums):
+    array1 = []
+    array2 = []
+    for i in nums:
+        if i in array1:
+            array1.append(i)
+        array2.append(i)
+    result = set(array2).difference(set(array1))
+    return result.pop()
 
 
 if __name__ == '__main__':
