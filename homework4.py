@@ -11,8 +11,7 @@ def singleNumber2(nums):
         if i in array1:
             array1.append(i)
         array2.append(i)
-    result = set(array2).difference(set(array1))
-    return result.pop()
+    return (set(array2).difference(set(array1))).pop()
 
 
 if __name__ == '__main__':
