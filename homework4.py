@@ -8,10 +8,10 @@ def singleNumber2(nums):
     array1 = []
     array2 = []
     for i in nums:
-        if i in array1:
+        if i not in array1:
             array1.append(i)
         array2.append(i)
-    return (set(array2).difference(set(array1))).pop()
+    return (set(array1).difference(set(array2))).pop()
 
 
 if __name__ == '__main__':
