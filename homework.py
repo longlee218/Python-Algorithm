@@ -1,33 +1,34 @@
-def change_value(i, j, matrix):
-    matrix[i][j] = 0
-    if -1 < i < len(matrix)-1 and matrix[i+1][j] == 1:
-        change_value(i+1, j, matrix)
-    if -1 < j < len(matrix[0])-1 and matrix[i][j+1] == 1:
-        change_value(i, j+1, matrix)
-    if 0 < i < len(matrix)+1 and matrix[i-1][j] == 1:
-        change_value(i-1, j, matrix)
-    if 0 < j < len(matrix[0])+1 and matrix[i][j-1] == 1:
-        change_value(i, j-1, matrix)
+
+def trans(expression):
+    return list(expression.split())
 
 
-def islands_count(matrix):
-    count = 0
-    for i in range(len(matrix)):
-        for j in range(len(matrix[1])):
-            if matrix[i][j] == 1:
-                count += 1
-                change_value(i, j, matrix)
-    return count
+def eval(expression):
+    trans(expression)
+    sign = 1
+    number = []
+    sum1 = 0
+    result = 0
+    for index in range(len(expression)):
+        if expression[index] == '(':
+            number.append(result)
+            number.append(sign)
+            result = 0      # reset lai ket qua
+            sign = 1        # reset dau
+        elif expression[index] == ')':
+            result *= number.pop()
+            result += number.pop()
+        elif expression[index] == '+':
+            sign = 1
+        elif expression[index] == '-':
+            sign = -1
+        if expression[index].isdigit():
+            sum1 += int(expression[index])
+        result += sum1 * sign
+        sum1 = 0
+    return result + sum1 * sign
 
 
 if __name__ == '__main__':
-    matrix_input1 = [[1, 1, 0, 0, 0],
-                     [1, 1, 0, 0, 0],
-                     [0, 0, 1, 0, 0],
-                     [0, 0, 0, 1, 1]]
-    matrix_input2 = [[1, 1, 1, 1, 0],
-                     [1, 1, 0, 1, 0],
-                     [1, 1, 0, 0, 0],
-                     [0, 0, 0, 0, 0]]
-    print(islands_count(matrix_input1))
-    print(islands_count(matrix_input2))
+    express = '-(3+(3-2))'
+    print(eval(express))
