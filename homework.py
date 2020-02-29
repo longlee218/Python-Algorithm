@@ -28,7 +28,7 @@ def eval(expression):
         result += sum1 * sign
         sum1 = 0                    # reset lại tổng giá trị các số
         index += 1
-    return result        # kết quả cuối
+    return result           # kết quả cuối
 
 # cach 2
 
@@ -44,13 +44,20 @@ def eval_ver2(expression):
     stack_number = []
     stack_op = []
     sign = 1
-    result = 0
     i = 0
     while i < len(expression):
         if expression[i].isdigit():
+            # if len(stack_op) == 0:
+            #     stack_number.append(int(expression[i])*sign)
+            #     sign = 1
             if len(stack_op) == 0:
-                stack_number.append(int(expression[i])*sign)
+                result = 0
+                while i < len(expression) and expression[i].isdigit():
+                    result = result * 10 + int(expression[i])
+                    i += 1
+                stack_number.append(result*sign)
                 sign = 1
+                i -= 1
             else:
                 number1 = stack_number.pop()
                 number2 = int(expression[i])*sign
@@ -66,8 +73,8 @@ def eval_ver2(expression):
 
 
 if __name__ == '__main__':
-    print(eval('-(3+(-2+3))'))
-    print(eval('-3*(3-2)'))     # ket qua sai
-    print(eval_ver2('8/4'))
-    print(eval_ver2('-2*8/4'))
+    print(eval('-(3+(3-2)'))
+    print(eval('-3*(3-2)'))     #ket qua sai
+    print(eval_ver2('30*4-20+-4'))
+    print(eval_ver2('-2*8/4-5'))
 
