@@ -1,6 +1,6 @@
 
 def trans(expression):
-    return list(expression.split())
+    return expression.split()
 
 
 def eval(expression):
@@ -46,10 +46,10 @@ def eval_ver2(expression):
     sign = 1
     i = 0
     while i < len(expression):
-        if expression[i].isdigit():
-            # if len(stack_op) == 0:
-            #     stack_number.append(int(expression[i])*sign)
-            #     sign = 1
+        if expression[i] == ' ':
+            i += 1
+            continue
+        elif expression[i].isdigit():
             if len(stack_op) == 0:
                 result = 0
                 while i < len(expression) and expression[i].isdigit():
@@ -75,6 +75,6 @@ def eval_ver2(expression):
 if __name__ == '__main__':
     print(eval('-(3+(3-2)'))
     print(eval('-3*(3-2)'))     #ket qua sai
-    print(eval_ver2('30*4-20+-4'))
+    print(eval_ver2('30* 4-20+-4'))
     print(eval_ver2('-2*8/4-5'))
 
