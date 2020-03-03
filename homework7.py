@@ -39,7 +39,7 @@ if __name__ == '__main__':
     print(find_cycle(graph))
 
 """
-    +) Thuật toán có độ phức tạp về thời gian là O(n) do phải thực
+    +) Thuật toán có độ phức tạp thời gian là O(n) do phải thực
     hiện if với n lần (n là len của dict)
-    +) Độ phức tạp space memory là O(1) do ko khai báo thêm thành phần phụ
+    +) Space memory là O(1) do ko khai báo thêm thành phần phụ
 """
