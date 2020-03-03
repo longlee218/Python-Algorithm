@@ -47,3 +47,12 @@ if __name__ == '__main__':
               ['M', 'A', 'S', 'S']]
     print(word_search(matrix, 'ASS'))
     print(word_search2(matrix, 'ASS'))
+
+"""
+    * Solution1: 
+        +) Thuật toán có độ phức tạp thời gian O(n*m) với n: số h,àng m: số cột
+        +) Thuật toán có memory space là O(z) do phải insert vào string a (z là len của words)
+    * Solution2:
+        +) Thuật toán có độ phức tạp thời gian O(n*(m+n))
+        +) Thuật toán có memory space O(n*m)
+"""
