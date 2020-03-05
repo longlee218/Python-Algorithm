@@ -21,10 +21,24 @@
 
 
 def find_cycle(graph):
-    for i in graph:
-        if graph[i] != graph:
+    visited = {u: False for u in graph}
+    for u in graph:
+        if visited[u] is False:
+            if DFS(graph, u, u, visited):
+                return True
+    return False
+
+
+def DFS(graph, u, previous_node, visited):
+    visited[u] = True
+    for v in graph[u]:
+        if v not in graph:
             continue
-        return True
+        elif visited[v] and graph[v] != previous_node:
+            return True
+        elif visited[v] is False:
+            if DFS(graph, v, u, visited):
+                return True
     return False
 
 
@@ -37,9 +51,8 @@ if __name__ == '__main__':
     print(find_cycle(graph))
     graph['c'] = graph
     print(find_cycle(graph))
-
 """
-    +) Thuật toán có độ phức tạp thời gian là O(n) do phải thực
-    hiện if với n lần (n là len của dict)
-    +) Space memory là O(1) do ko khai báo thêm thành phần phụ
+    +) Thuật toán có độ phức tạp thời gian là O(u+v) do phải thực
+    hiện if với n lần (u là len của dict , v la len cua graph[u])
+    +) Space memory là O(1)
 """
