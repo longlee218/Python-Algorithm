@@ -36,6 +36,6 @@ if __name__ == '__main__':
 
 """
     *Solution
-       +) Độ phức tạp thuật toán O(n^2)
-       +) Memory space O(n^2)
+       +) Độ phức tạp thuật toán O(n^2) với n là len của chuỗi số đầu vào
+       +) Memory space O(n^2) với n là len của chuỗi số đầu vào
 """
