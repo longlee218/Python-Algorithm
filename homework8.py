@@ -76,6 +76,6 @@ if __name__ == '__main__':
     c.pretty_print()
 
 """
-    +) Độ phức tạp thời gian O(n+m) với n: số node của a, m: số node của b
+    +) Độ phức tạp thời gian O(n*m) với n: số node của a, m: số node của b
     +) Space memory là O(n) với n: số node của a
 """
