@@ -37,6 +37,7 @@ def stripe_question2(nums):
             continue
         temp = nums[i]
         if nums[temp-1] != nums[i]:
+            print(nums)
             nums[temp-1], nums[i] = nums[i], nums[temp-1]
         else:
             continue
@@ -48,10 +49,10 @@ def stripe_question2(nums):
 
 
 if __name__ == '__main__':
-    array1 = [3, 2, -1, 1, 2]                      # expect 4
+    array1 = [-3, -2, -1, -1, -2]                  # expect 4
     array2 = [1, 2, 0]                             # expect 3
     array3 = [0, -1, 0]                            # expect 1
-    array4 = [1, 4, 2, 7, 3, -1, 1, 4, 2]          # expect 5
+    array4 = [1, 7, 2, 4, 2, 8, 6, 5]                 # expect 5
     print(stripe_question1(array4))
     print(stripe_question2(array4))
 
