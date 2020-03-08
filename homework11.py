@@ -73,10 +73,7 @@ def merge2(lists, last):
         i = 0
         j = last
         while i < j:
-            # print(lists[i])
-            # print(lists[i+1])
             lists[i] = sort_list(lists[i], lists[j])
-            # print(lists[i])
             i += 1
             j -= 1
             if i >= j:
@@ -120,5 +117,7 @@ Solution1:
               Tiến hành sắp xếp bằng counting sort, trả lại output như đề bài.
 
 Solution2:
-    +) Time complexity: O()
+    +) Time complexity: O(nKlogK) <hàm merge2 vòng lặp thực hiện sort_list() với logK lần với K là độ dài list chứa linklists, 
+                                    đệ quy n*K phần tử (n là số node của mỗi linklist)>
+    +) Memory space: O(n) <n: số node của mỗi linklist>
 """
