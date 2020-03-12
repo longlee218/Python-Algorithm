@@ -26,13 +26,13 @@ def check_number(list_character):
 
 def fb_question(s):
     result = [0 for i in range(len(s) + 1)]
-    result[0] = 1
+    result[0] = 1       # trường hợp chuỗi rỗng
     for i in range(len(s)):
         if check_number(s[i]) == 1:
             result[i+1] += result[i]
         if i >= 1 and check_number(s[i-1:i+1]) == 1:
             result[i+1] += result[i-1]
-    return result
+    return result[-1]
 
 # Solution2
 
@@ -52,6 +52,16 @@ def fb_question_recur(s, index):
 
 
 if __name__ == '__main__':
-    string_in = '111212'
+    string_in = ''
     print(fb_question(string_in))
     print(fb_question_recur(string_in, 0))
+
+
+"""
+   Solution 1:
+        +) Time complexity O(n) <n là len của chuỗi cần decode>
+        +) Space memory O(n)
+    Solution 2:
+        +) Time complexity O(n)
+        +) Space memory O(1)
+"""
