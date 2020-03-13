@@ -30,28 +30,37 @@ def maximum_product_of_three1(lst):
 # Solution2
 
 
+def max_one(a, b):
+    if a >= b:
+        return a
+    return b
+
+
 def maximum_product_of_three3(lst):
-    min_value1 = 999999999999999
-    min_value2 = min_value1
-    max_value1 = -min_value1
-    max_value2 = max_value1
-    max_value3 = max_value1
-    for i in lst:
-        if i > max_value1:
-            max_value3 = max_value2
-            max_value2 = max_value1
-            max_value1 = i
-        elif i > max_value2:
-            max_value3 = max_value2
-            max_value2 = i
-        elif i > max_value3:
-            max_value3 = i
-        if i < min_value1:
-            min_value2 = min_value1
-            min_value1 = i
-        elif i < min_value2:
-            min_value2 = i
-    return max(min_value1*min_value2*max_value1, max_value1*max_value2*max_value3)
+    if len(lst) < 3:
+        return -1
+    else:
+        min_value1 = 999999999999999
+        min_value2 = min_value1             # [ min_value1, min_value2, ....,max_value3, max_value2, max_value1 ]
+        max_value1 = -min_value1
+        max_value2 = max_value1
+        max_value3 = max_value1
+        for i in lst:
+            if i > max_value1:
+                max_value3 = max_value2
+                max_value2 = max_value1
+                max_value1 = i
+            elif i > max_value2:
+                max_value3 = max_value2
+                max_value2 = i
+            elif i > max_value3:
+                max_value3 = i
+            if i < min_value1:
+                min_value2 = min_value1
+                min_value1 = i
+            elif i < min_value2:
+                min_value2 = i
+        return max_one(min_value1*min_value2*max_value1, max_value1*max_value2*max_value3)
 
 
 if __name__ == '__main__':
