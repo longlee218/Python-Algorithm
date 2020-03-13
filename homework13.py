@@ -9,8 +9,6 @@
     You can assume that the messages are decoded. For example '001' is not allowed
 """
 
-string = 'abcdefghijklmnopqrstuvwxyz'
-string = dict(enumerate(list(''.join(string))))
 
 # Solution 1
 
@@ -46,13 +44,13 @@ def fb_question_recur(s, index):
     b = 0
     if s[index] != '0':
         a = fb_question_recur(s, index+1)
-    if s[index] == '1' or (s[index] == '2' and s[index] <= '6'):
+    if s[index] == '1' or (s[index] == '2' and s[index+1] <= '6'):
         b = fb_question_recur(s, index+2)
     return a+b
 
 
 if __name__ == '__main__':
-    string_in = ''
+    string_in = '121'
     print(fb_question(string_in))
     print(fb_question_recur(string_in, 0))
 
