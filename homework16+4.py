@@ -28,6 +28,6 @@ if __name__ == '__main__':
     print(num_ways(3, 3))
 
 """
-    +)Time complexity: O(?) em chưa xác định được 
+    +)Time complexity: O(2^(n+m)) n: so hang, m: so cot
     +)Memory space: O(1)
 """
