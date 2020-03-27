@@ -1,3 +1,3 @@
 # Python-Algorithm
 Homework
-<h1>Python</h1>
+<h1 style="color: #8092ed;">Python Aglorithm</h1>
