@@ -1,3 +1,12 @@
+"""
+    Given a list of numbers with only 3 unique numbers (1,2,3), sort the list in O(n) time
+
+    Example:
+        Input: [3, 2, 1, 1, 3, 3, 2, 2]
+        Output: [1, 1, 2, 2, 2, 3, 3, 3]
+
+"""
+
 
 def sort_num(nums):
     count1 = 0

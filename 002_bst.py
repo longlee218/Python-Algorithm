@@ -1,3 +1,11 @@
+"""
+    Binary search tree
+
+    Asked by Facebook: determine if 2 BSTs are equal
+    Asked by Amazon: find path between 2 nodes of BST. Return length of path
+
+"""
+
 
 class Node:
     def __init__(self, value):

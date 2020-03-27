@@ -1,3 +1,19 @@
+"""
+    This problem was asked by Facebook:
+
+    You are given a list of numbers, and a target number k. Return whether of not there are 2 nubmers
+    in the list that add up to k.
+
+    Example:
+        Given a list =  [4, 7, 1, -3, 2] and k =5
+
+        def two_sum(list, k):
+            # Fill this
+
+        print two_sum(list, 5)
+
+"""
+
 
 def two_sum1(listed, k):
     check = False
