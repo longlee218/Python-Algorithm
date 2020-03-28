@@ -22,7 +22,7 @@ def decode():
     strings = ""
     while len(strings) > 200 or len(strings) == 0 or "WUB" not in strings:
         strings = str(input("Enter: ").upper())
-    return " ".join((list(strings.replace("WUB", " ").split(" "))))
+    return " ".join(strings.replace('WUB', ' ').split())
 
 
 if __name__ == '__main__':
