@@ -169,12 +169,12 @@ if __name__ == '__main__':
     tree2.insert_bst(7)
 
     # tree2.delete_node(tree2.root, 7)
-    # tree2.print_tree()
+    tree2.print_tree()
 
     # print(facebook_question(tree1.root, tree1.root))
     # print(facebook_question(tree1.root, tree2.root))
     #
-    print(amazon_question(tree1, 2, 5))
-    print(amazon_question(tree1, 5, 2))
-    print(amazon_question(tree1, 1, 7))
-    print(amazon_question(tree1, 7, 1))
+    # print(amazon_question(tree1, 2, 5))
+    # print(amazon_question(tree1, 5, 2))
+    # print(amazon_question(tree1, 1, 7))
+    # print(amazon_question(tree1, 7, 1))
